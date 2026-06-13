@@ -1,0 +1,24 @@
+services:
+
+  locust:
+    image: locustio/locust:latest
+    container_name: locust-runner
+    volumes:
+      - ./locustfile.py:/mnt/locust/locustfile.py
+      - ./results:/mnt/locust/results
+    working_dir: /mnt/locust
+    networks:
+      - default
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2G
+        reservations:
+          cpus: "1.0"
+          memory: 512M
+
+networks:
+  default:
+    external: true
+    name: testeperformance_default
