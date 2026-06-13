@@ -11,3 +11,7 @@ class JuiceShopUser(HttpUser):
     @task
     def busca(self):
         self.client.get("/rest/products/search?q=apple")
+    
+    @task
+    def produto(self):
+        self.client.get("/api/Products/1")
