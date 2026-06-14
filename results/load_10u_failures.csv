@@ -1,3 +1,2 @@
 Method,Name,Error,Occurrences,First Seen,Last Seen
-POST,/api/BasketItems,HTTPError('401 Client Error: Unauthorized for url: /api/BasketItems'),62,2026-06-14T20:48:37Z,2026-06-14T20:49:34Z
-POST,/api/Users,HTTPError('400 Client Error: Bad Request for url: /api/Users'),10,2026-06-14T20:48:37Z,2026-06-14T20:48:41Z
+POST,/api/BasketItems,HTTPError('400 Client Error: Bad Request for url: /api/BasketItems'),6,2026-06-14T21:37:57Z,2026-06-14T21:38:45Z
