@@ -15,3 +15,10 @@ class JuiceShopUser(HttpUser):
     @task
     def produto(self):
         self.client.get("/api/Products/1")
+
+    @task
+    def login(self):
+        self.client.post("/rest/user/login", json={
+        "email": "joaoiaronka622@gmail.com",
+        "password": "Elo2026!"
+    })
