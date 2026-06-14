@@ -1,2 +1,2 @@
 Method,Name,Error,Occurrences,First Seen,Last Seen
-POST,/api/BasketItems,HTTPError('400 Client Error: Bad Request for url: /api/BasketItems'),6,2026-06-14T21:37:57Z,2026-06-14T21:38:45Z
+POST,/api/BasketItems,HTTPError('400 Client Error: Bad Request for url: /api/BasketItems'),1,2026-06-14T21:53:56Z,2026-06-14T21:53:56Z
