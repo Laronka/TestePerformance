@@ -22,3 +22,10 @@ class JuiceShopUser(HttpUser):
         "email": "joaoiaronka622@gmail.com",
         "password": "Elo2026!"
     })
+    @task
+    def carrinho(self):
+         self.client.post("/api/BasketItems", json={
+        "ProductId": 1,
+        "BasketId": 1,
+        "quantity": 1
+    })
