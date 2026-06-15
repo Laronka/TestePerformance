@@ -15,7 +15,8 @@ TestePerformance/
 │   ├── load_10u_stats.csv
 │   ├── load_25u_stats.csv
 │   ├── load_50u_stats.csv
-│   └── load_100u_stats.csv
+│   ├── load_100u_stats.csv
+│   └── load_200u_stats.csv
 └── README.md
 ```
 
@@ -69,6 +70,11 @@ docker-compose -f docker-compose.locust.yml run --rm locust -f locustfile.py --h
 docker-compose -f docker-compose.locust.yml run --rm locust -f locustfile.py --headless -u 100 -r 10 -t 60s --csv results/load_100u
 ```
 
+**200 usuários — colapso:**
+```bash
+docker-compose -f docker-compose.locust.yml run --rm locust -f locustfile.py --headless -u 200 -r 20 -t 60s --csv results/load_200u
+```
+
 ### 4. Verificar os resultados
 
 Após cada teste, os arquivos CSV são salvos em `results/`:
@@ -110,6 +116,7 @@ Os pesos definem a probabilidade de cada cenário ser sorteado pelo Locust. Cen�
 | Baixo-médio | 25 | 3/s | 60s |
 | Médio | 50 | 5/s | 60s |
 | Alto | 100 | 10/s | 60s |
+| Colapso | 200 | 20/s | 60s |
 
 ---
 
@@ -118,4 +125,4 @@ Os pesos definem a probabilidade de cada cenário ser sorteado pelo Locust. Cen�
 - O Juice Shop recria o banco de dados toda vez que o container é reiniciado. O `locustfile.py` cria automaticamente uma conta de teste no `on_start` antes de iniciar os cenários, portanto não é necessário criar usuários manualmente.
 - Os testes rodam em containers Docker isolados com recursos limitados (Juice Shop: 3 cores / 4GB RAM, Locust: 2 cores / 2GB RAM) para evitar que os dois processos compitam pelos mesmos recursos da máquina. Essa separação foi recomendada pelo professor para garantir que o Locust e o Juice Shop não disputem os mesmos recursos, o que distorceria os resultados.
 - O container do Locust é removido automaticamente após cada teste (`--rm`).
-- O arquivo `docker-compose.locust.yml` usa a rede `testeperformance_default`, gerada automaticamente pelo Docker com base no nome da pasta do projeto. Se você clonar o repositório em uma pasta com nome diferente de `TestePerformance`, será necessário atualizar o campo `name` na seção `networks` do arquivo `docker-compose.locust.yml`.
+

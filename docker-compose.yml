@@ -1,10 +1,11 @@
 services:
-
   juice-shop:
     image: bkimminich/juice-shop:latest
     container_name: juice-shop
     ports:
       - "3000:3000"
+    networks:
+      - perf-network
     deploy:
       resources:
         limits:
@@ -13,3 +14,7 @@ services:
         reservations:
           cpus: "1.0"
           memory: 1G
+
+networks:
+  perf-network:
+    name: perf-network
