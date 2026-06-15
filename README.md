@@ -13,6 +13,7 @@ TestePerformance/
 ├── locustfile.py                # Cenários de teste
 ├── results/                     # CSVs gerados pelos testes
 │   ├── load_10u_stats.csv
+│   ├── load_25u_stats.csv
 │   ├── load_50u_stats.csv
 │   └── load_100u_stats.csv
 └── README.md
@@ -51,6 +52,11 @@ Execute um de cada vez, aguardando o anterior terminar:
 **10 usuários — carga baixa:**
 ```bash
 docker-compose -f docker-compose.locust.yml run --rm locust -f locustfile.py --headless -u 10 -r 2 -t 60s --csv results/load_10u
+```
+
+**25 usuários — carga baixa-média:**
+```bash
+docker-compose -f docker-compose.locust.yml run --rm locust -f locustfile.py --headless -u 25 -r 3 -t 60s --csv results/load_25u
 ```
 
 **50 usuários — carga média:**
@@ -101,6 +107,7 @@ Os pesos definem a probabilidade de cada cenário ser sorteado pelo Locust. Cen�
 | Nível | Usuários | Spawn rate | Duração |
 |-------|----------|------------|---------|
 | Baixo | 10 | 2/s | 60s |
+| Baixo-médio | 25 | 3/s | 60s |
 | Médio | 50 | 5/s | 60s |
 | Alto | 100 | 10/s | 60s |
 
